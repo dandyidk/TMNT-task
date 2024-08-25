@@ -5,12 +5,13 @@ from geometry_msgs.msg import Twist
 from std_msgs.msg import String
 import sys, select, termios, tty
 
+SPEED =5
 # Key mappings
 move_bindings = {
-    'w': (5, 0, 0, 0),
-    's': (-5, 0, 0, 0),
-    'a': (0, 0, 5, 0),
-    'd': (0, 0, -5, 0),
+    'w': (SPEED, 0, 0, 0),
+    's': (-SPEED, 0, 0, 0),
+    'a': (0, 0, SPEED, 0),
+    'd': (0, 0, -SPEED, 0),
 }
 
 def get_key():#to read inputs from the user without having to press enter
