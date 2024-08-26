@@ -21,5 +21,5 @@ if you want to add in a turtle do(without the ""):
 #### Turtle movement
 the turtle movement source code is in the src scripts directory named turtle_movement.py
 #### Bash scripts
-running new_turtle.sh creates a new turtle ( make sure you have already ran rosrun turtlesim turtlesim_node command_
+running new_turtle.sh creates a new turtle and lets the current terminal control the new turtle( make sure you have already ran rosrun turtlesim turtlesim_node command_
 
