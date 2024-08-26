@@ -15,7 +15,7 @@ rosrun turtle_control turtle_movement.py turtle1
 ```
 if you want to add in a turtle do(without the ""):
 ```
-./new_turtle.sh "turtle name"
+./newturtle.sh "turtle name"
 ```
 ## How to navigate the folders
 #### Turtle movement
