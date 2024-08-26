@@ -66,9 +66,8 @@ if __name__ == '__main__':
         main()
     except rospy.ROSInterruptException:
         pass
-rom the terminal
-    #termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)  incase we need to return terminal into its original setting
-    return key
+
+
 
 def main():
     rospy.init_node('turtle_wasd_control')

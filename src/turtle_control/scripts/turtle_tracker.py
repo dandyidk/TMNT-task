@@ -14,7 +14,6 @@ class TurtleTracker:
         for i in arg[1:]:
             self.turtles_tracker[i] = {'x':2,
                                        'y':2}
-            
         self.subscribers = []
         for i in arg[1:]:
             self.subscriber = rospy.Subscriber(f'{i}/pose',Pose,self.callback(),callback_args= i)
