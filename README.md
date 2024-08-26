@@ -11,11 +11,15 @@ rosrun turtlesim turtlesim_node
 and another runs the following commands (from the catkin_ws directory)
 ```
 source /devel/setup.bash
-rosrun turtle_control turtle_movement.py
+rosrun turtle_control turtle_movement.py turtle1
 ```
-if you want to add in a turtle do:
+if you want to add in a turtle do (without the ""):
 ```
-./new_turtle.sh
+./new_turtle.sh "TURTLE NAME"
+```
+if u want to track all turtles positions:
+```
+rosrun turtle_control turtle_tracker 
 ```
 ## How to navigate the folders
 #### Turtle movement
