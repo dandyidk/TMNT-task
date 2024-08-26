@@ -19,13 +19,14 @@ class TurtleTracker:
             self.subscribers[i] = rospy.Subscriber(f'{i}/pose',Pose,self.callback,callback_args= i)
 
         self.pose = Pose()
-
+        for i in arg[1:]:
+            print(self.turtles_tracker[i]['x'])
     def callback(self,data,name):
         self.turtles_tracker[name] = {
             'x':data.x,
             'y':data.y
         }
-        print(self.turtles_tracker[name]['x'])
+        
     def run(self):
         rospy.spin()
 if __name__ == '__main__':
