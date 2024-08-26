@@ -28,7 +28,7 @@ def main():
         turtle_name = args[1]
     except IndexError:
 
-        turtle_name = "turtle"
+        turtle_name = "turtle1"
 
     rospy.init_node(f'{turtle_name}_wasd_control')
 
