@@ -25,7 +25,7 @@ class TurtleTracker:
             'x':data.x,
             'y':data.y
         }
-        print(self.turtles_tracker[name].x)
+        print(self.turtles_tracker[name]['x'])
     def run(self):
         rospy.spin()
 if __name__ == '__main__':
