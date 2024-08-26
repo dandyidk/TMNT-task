@@ -1,2 +1,2 @@
-
--DCATKIN_DEVEL_PREFIX=/home/dandy/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/dandy/catkin_ws/install -G Unix Makefiles
+turtle_control
+-DCATKIN_DEVEL_PREFIX=/home/dandy/catkin_ws/TMNT-task/devel -DCMAKE_INSTALL_PREFIX=/home/dandy/catkin_ws/TMNT-task/install -G Unix Makefiles
