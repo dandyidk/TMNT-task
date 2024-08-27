@@ -6,7 +6,7 @@ from turtlesim.msg import Pose
 from std_msgs.msg import String
 import sys,math
 
-RADIUS = 0.4
+RADIUS = 2.4
 
 class TurtleTracker:
     def __init__(self):
