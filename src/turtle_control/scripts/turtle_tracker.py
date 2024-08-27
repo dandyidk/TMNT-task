@@ -35,7 +35,7 @@ class TurtleTracker:
     def attack(self,data):
         name = data.data
         turtle = self.turtles_tracker[name]
-        self.turtles_tracker[name] ={'attack':1}
+        turtle['attack'] = turtle['attack'] -50
         for i in self.turtles_tracker:
             print(i)
             oppturtle=self.turtles_tracker[i]
