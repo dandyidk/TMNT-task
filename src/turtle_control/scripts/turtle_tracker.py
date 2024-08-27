@@ -34,6 +34,7 @@ class TurtleTracker:
         }
     def attack(self,data):
         name = data.data
+        turtle = self.turtles_tracker[name]
         print(name)
         self.turtles_tracker[name] ={'attack':1}
         print(2)
@@ -41,8 +42,8 @@ class TurtleTracker:
             if i == name:
                 continue
             else:
-                x =abs(self.turtles_tracker[i]['x']-self.turtles_tracker[name]['x'])
-                y =abs(self.turtles_tracker[i]['y']-self.turtles_tracker[name]['y'])
+                x =abs(turtle['x']-turtle['x'])
+                y =abs(self.turtles_tracker[i]-self.turtles_tracker[name]['y'])
                 hypo = math.sqrt(pow(x,2)+pow(y,2))
                 if RADIUS<hypo:
                     self.turtles_tracker[i]['health'] -= 50
