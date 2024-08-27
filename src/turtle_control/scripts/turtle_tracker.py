@@ -41,6 +41,7 @@ class TurtleTracker:
                 hypo = math.sqrt(pow(self.turtles_tracker[i]['x'],2)+pow(self.turtles_tracker[i]['y'],2))
                 if RADIUS<hypo:
                     self.turtles_tracker[i]['health'] -= 50
+                    print(self.turtles_tracker[i]['health'])
 
 
         
