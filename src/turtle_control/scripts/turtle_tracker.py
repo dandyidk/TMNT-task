@@ -39,15 +39,16 @@ class TurtleTracker:
         self.turtles_tracker[name] ={'attack':1}
         print(2)
         for i in self.turtles_tracker:
+            oppturtle=self.turtles_tracker[i]
             if i == name:
                 continue
             else:
-                x =abs(turtle['x']-turtle['x'])
-                y =abs(self.turtles_tracker[i]-self.turtles_tracker[name]['y'])
+                x =abs(turtle['x']-oppturtle['x'])
+                y =abs(turtle['y']-oppturtle['y'])
                 hypo = math.sqrt(pow(x,2)+pow(y,2))
                 if RADIUS<hypo:
-                    self.turtles_tracker[i]['health'] -= 50
-                    print(self.turtles_tracker[i]['health'])
+                    oppturtle['health'] -= 50
+                    print(oppturtle['health'])
 
 
         
