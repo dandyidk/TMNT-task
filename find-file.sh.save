@@ -1,7 +1,0 @@
-#!/bin/bash
-turtle_name = "$1"
-
-if ! grep -q "$turtle_name" "allturtles.txt";then
-
-	echo $1" >> "allturtles,txt" 
-fi
