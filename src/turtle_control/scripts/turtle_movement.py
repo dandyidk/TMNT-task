@@ -40,7 +40,7 @@ def main():
     global settings
     settings = termios.tcgetattr(sys.stdin) #takes current settings of the terminal
 
-    print("Usefdsfs WASD keys to move the turtle!")
+    print("Usesdasd WASD keys to move the turtle!")
     print("Type q to attack")
     print("Press Ctrl+C to exit.")
 
@@ -52,7 +52,7 @@ def main():
         else:
             x, y, z, th = 0, 0, 0, 0
             if key =='q':
-	        print("working")
+	            print("working")
                 string = String()
                 string.data=turtle_name
                 pub_atck.publish(string)
