@@ -42,13 +42,11 @@ class TurtleTracker:
             if i == name:
                 continue
             else:
-                print(turtle['x'],turtle['y'])
-                print(oppturtle['x'],oppturtle['y'])
                 x =abs(turtle['x']-oppturtle['x'])
                 y =abs(turtle['y']-oppturtle['y'])
                
                 hypo = math.sqrt(pow(x,2)+pow(y,2))
-                if RADIUS<hypo:
+                if RADIUS>hypo:
                     oppturtle['health'] -= 50
                     print(oppturtle['health'])
 
