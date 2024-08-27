@@ -4,6 +4,8 @@
 
 rosservice call /spawn 2 2 0 $1
 
+./find-file $1
+
 source devel/setup.bash
 
 sleep 2

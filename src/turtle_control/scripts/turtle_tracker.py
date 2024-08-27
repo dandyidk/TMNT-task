@@ -32,6 +32,7 @@ class TurtleTracker:
         rospy.wait_for_service('/kill')
         self.kill_turtle = rospy.ServiceProxy('/kill', Kill)
 
+
     def callback(self,data,name):
         self.turtles_tracker[name]['x'] = data.x
         self.turtles_tracker[name]['y'] = data.y

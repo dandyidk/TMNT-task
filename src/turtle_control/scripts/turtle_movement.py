@@ -4,6 +4,7 @@ import rospy
 from geometry_msgs.msg import Twist
 from std_msgs.msg import String
 import sys, select, termios, tty
+from turtlesim.srv import SetPen
 
 SPEED =3
 # Key mappings
@@ -37,6 +38,12 @@ def main():
 
     print("Hello", turtle_name)
 
+    rospy.wait_for_service(f'/{turtle_name}/set_pen')
+
+    set_pen = rospy.ServiceProxy('/turtle1/set_pen', SetPen)
+
+    set_pen(255,255,255,0)
+    
     global settings
     settings = termios.tcgetattr(sys.stdin) #takes current settings of the terminal
 
