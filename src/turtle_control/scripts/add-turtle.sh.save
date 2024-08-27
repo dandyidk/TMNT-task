@@ -1,6 +1,0 @@
-#!/bin/bash
-
-if ! grep -q "$1" "$FILE";then
-
-	echo "$1" >> "$FILE" 
-fi
