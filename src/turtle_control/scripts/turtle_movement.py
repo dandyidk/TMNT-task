@@ -33,7 +33,7 @@ def main():
     rospy.init_node(f'{turtle_name}_wasd_control')
 
     pub_ctrl = rospy.Publisher(f'/{turtle_name}/cmd_vel', Twist, queue_size=10) #publishes the movement of the turtle
-    pub_atck = rospy.Publisher(f'/{turtle_name}/cmd_vel',String,queue_size=10) #publishes when to attack
+    pub_atck = rospy.Publisher('/attack',String,queue_size=10) #publishes when to attack
 
     print("Hello", turtle_name)
 
@@ -52,7 +52,9 @@ def main():
         else:
             x, y, z, th = 0, 0, 0, 0
             if key =='q':
-                pub_atck.publish(turtle_name)
+                string = String()
+                string.data=turtle_name
+                pub_atck.publish(string)
             elif key == '\x03':  # Ctrl+C
                 break
 
@@ -71,4 +73,3 @@ if __name__ == '__main__':
         main()
     except rospy.ROSInterruptException:
         pass
-
