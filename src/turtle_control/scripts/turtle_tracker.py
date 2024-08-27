@@ -55,7 +55,7 @@ class TurtleTracker:
                
                 hypo = math.sqrt(pow(x,2)+pow(y,2))
                 if RADIUS>hypo:
-                    print(name,"attacked ",oppturtle)
+                    print(name,"attacked ",i)
                     oppturtle['health'] -= 50
                     if oppturtle['health'] <= 0:
                         print(f"{i} has been killed!")
@@ -65,7 +65,7 @@ class TurtleTracker:
 
         if self.gameover():
             print(self.gameover(),"Won")
-            exit 
+
 
 
         
