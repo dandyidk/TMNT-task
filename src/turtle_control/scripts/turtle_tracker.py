@@ -36,6 +36,7 @@ class TurtleTracker:
         name = data.data
         print(name)
         self.turtles_tracker[name]['attack'] -=1
+        print(2)
         for i in self.turtles_tracker:
             if i == name:
                 continue
