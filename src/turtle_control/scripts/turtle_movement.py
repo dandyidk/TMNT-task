@@ -40,7 +40,7 @@ def main():
 
     rospy.wait_for_service(f'/{turtle_name}/set_pen')
 
-    set_pen = rospy.ServiceProxy('/turtle1/set_pen', SetPen)
+    set_pen = rospy.ServiceProxy(f'/{turtle_name}/set_pen', SetPen)
 
     set_pen(255,255,255,0,0)
     
