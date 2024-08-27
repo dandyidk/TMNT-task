@@ -5,6 +5,7 @@ from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
 from std_msgs.msg import String
 import sys,math
+from turtlesim.srv import Kill
 
 RADIUS = 1
 
@@ -27,12 +28,18 @@ class TurtleTracker:
 
         self.pose = Pose()
         rospy.Subscriber('/attack',String,self.attack)
+
+        rospy.wait_for_service('/kill')
+        self.kill_turtle = rospy.ServiceProxy('/kill', Kill)
+
     def callback(self,data,name):
         self.turtles_tracker[name]['x'] = data.x
         self.turtles_tracker[name]['y'] = data.y
     def attack(self,data):
         name = data.data
         turtle = self.turtles_tracker[name]
+        if turtle['attack']<0:
+            return
         turtle['attack'] -=1
         for i in self.turtles_tracker:
             oppturtle=self.turtles_tracker[i]
@@ -45,7 +52,11 @@ class TurtleTracker:
                 hypo = math.sqrt(pow(x,2)+pow(y,2))
                 if RADIUS>hypo:
                     oppturtle['health'] -= 50
-                    print(oppturtle['health'])
+                    if oppturtle['health'] <= 0:
+                        print(f"{i} has been killed!")
+                        self.kill_turtle(i)
+                        del self.turtles_tracker[i]  
+                        break
 
 
         
