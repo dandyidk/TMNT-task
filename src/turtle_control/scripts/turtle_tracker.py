@@ -43,7 +43,7 @@ class TurtleTracker:
                 continue
             else:
                 print(turtle['x'],turtle['y'])
-                print(oppturtle['x'],oppturtle['y']])
+                print(oppturtle['x'],oppturtle['y'])
                 x =abs(turtle['x']-oppturtle['x'])
                 y =abs(turtle['y']-oppturtle['y'])
                
