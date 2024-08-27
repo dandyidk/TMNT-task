@@ -4,7 +4,7 @@
 
 rosservice call /spawn 2 2 0 $1
 
-./find-file $1
+./src/turtle_control/scripts/add-turtle.sh $1
 
 source devel/setup.bash
 

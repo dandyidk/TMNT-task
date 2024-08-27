@@ -6,12 +6,12 @@ from turtlesim.msg import Pose
 from std_msgs.msg import String
 import sys,math
 from turtlesim.srv import Kill
-
+import time
 RADIUS = 1
 
 class TurtleTracker:
     def __init__(self):
-
+        self.start_time=time.time() #for elapsing time
         rospy.init_node("turtle_tracker",anonymous = True)
         arg = rospy.myargv(argv=sys.argv) #must add in all turtle names as arguments
 
@@ -36,12 +36,15 @@ class TurtleTracker:
     def callback(self,data,name):
         self.turtles_tracker[name]['x'] = data.x
         self.turtles_tracker[name]['y'] = data.y
+
+
     def attack(self,data):
         name = data.data
         turtle = self.turtles_tracker[name]
-        if turtle['attack']<0:
+        if turtle['attack']<0 or time.time() -self.start_time<2:
             return
         turtle['attack'] -=1
+        self.start_time = time.time()
         for i in self.turtles_tracker:
             oppturtle=self.turtles_tracker[i]
             if i == name:
@@ -59,8 +62,24 @@ class TurtleTracker:
                         del self.turtles_tracker[i]  
                         break
 
+        if self.gameover():
+            print(self.gameover())
+
 
         
+    def gameover(self):
+        if len(self.turtles_tracker) <=1:
+            for i in self.turtles_tracker:
+                return i
+        else:
+            winner = 0
+            for i in self.turtles_tracker:
+                if self.turtles_tracker[i]["health"]>winner:
+                    winner = i
+                if self.turtles_tracker[i]["attack"] > 0:
+                    return 0
+            return winner
+    
     def run(self):
         rospy.spin()
 if __name__ == '__main__':
