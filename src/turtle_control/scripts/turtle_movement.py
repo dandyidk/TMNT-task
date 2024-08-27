@@ -5,7 +5,7 @@ from geometry_msgs.msg import Twist
 from std_msgs.msg import String
 import sys, select, termios, tty
 
-SPEED =5
+SPEED =2.4
 # Key mappings
 move_bindings = {
     'w': (SPEED, 0, 0, 0),
