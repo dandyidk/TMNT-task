@@ -52,10 +52,10 @@ def main():
         else:
             x, y, z, th = 0, 0, 0, 0
             if key =='q':
-	            print("working")
                 string = String()
                 string.data=turtle_name
                 pub_atck.publish(string)
+                print("working")
             elif key == '\x03':  # Ctrl+C
                 break
 
