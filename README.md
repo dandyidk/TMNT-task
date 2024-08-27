@@ -12,7 +12,7 @@ and another runs the following commands (from the catkin_ws directory)
 ```
 ./setup.sh
 ```
-if you want to add in a turtle do (without the ""):
+if you want to add in/take control of a turtle do (without the ""):
 ```
 $ ./new_turtle.sh "TURTLE NAME"
 ```
