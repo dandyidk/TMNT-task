@@ -42,7 +42,7 @@ def main():
 
     set_pen = rospy.ServiceProxy(f'/{turtle_name}/set_pen', SetPen)
 
-    set_pen(255,255,255,0,0)
+    set_pen(255,255,255,0,'off')
     
     global settings
     settings = termios.tcgetattr(sys.stdin) #takes current settings of the terminal
