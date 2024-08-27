@@ -28,16 +28,13 @@ class TurtleTracker:
         self.pose = Pose()
         rospy.Subscriber('/attack',String,self.attack)
     def callback(self,data,name):
-        self.turtles_tracker[name] = {
-            'x':data.x,
-            'y':data.y
-        }
+        self.turtles_tracker[name]['x'] = data.x
+        self.turtles_tracker[name]['y'] = data.y
     def attack(self,data):
         name = data.data
         turtle = self.turtles_tracker[name]
-        self.turtles_tracker[name]['attack'] -=1
+        turtle['attack'] -=1
         for i in self.turtles_tracker:
-            print(i)
             oppturtle=self.turtles_tracker[i]
             if i == name:
                 continue
