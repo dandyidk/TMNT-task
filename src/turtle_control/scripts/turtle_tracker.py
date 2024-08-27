@@ -3,6 +3,7 @@
 import rospy
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
+from std_msgs.msg import String
 import sys
 #hello
 class TurtleTracker:
@@ -20,12 +21,14 @@ class TurtleTracker:
             self.subscribers[i] = rospy.Subscriber(f'{i}/pose',Pose,self.callback,callback_args= i)
 
         self.pose = Pose()
+        rospy.Subscriber('/attack',String,self.attack)
     def callback(self,data,name):
         self.turtles_tracker[name] = {
             'x':data.x,
             'y':data.y
         }
-        print(self.turtles_tracker[name]['x']) # a little test to see all coordinates
+    def attack(self,data):
+        print(data.data)
         
     def run(self):
         rospy.spin()

@@ -40,7 +40,7 @@ def main():
     global settings
     settings = termios.tcgetattr(sys.stdin) #takes current settings of the terminal
 
-    print("Usesdasd WASD keys to move the turtle!")
+    print("Use WASD keys to move the turtle!")
     print("Type q to attack")
     print("Press Ctrl+C to exit.")
 
@@ -55,7 +55,6 @@ def main():
                 string = String()
                 string.data=turtle_name
                 pub_atck.publish(string)
-                print("working")
             elif key == '\x03':  # Ctrl+C
                 break
 
