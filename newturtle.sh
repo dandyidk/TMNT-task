@@ -6,7 +6,7 @@ rosservice call /spawn 2 2 0 $1
 
 source devel/setup.bash
 
-sleep 4
+sleep 2
 
 rosrun turtle_control turtle_movement.py $1
 

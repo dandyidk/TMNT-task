@@ -33,9 +33,10 @@ class TurtleTracker:
             'y':data.y
         }
     def attack(self,data):
-        self.turtles_tracker[data]['attack'] -=1
+        name = data.data
+        self.turtles_tracker[name]['attack'] -=1
         for i in self.turtles_tracker:
-            if i == data:
+            if i == name:
                 continue
             else:
                 hypo = math.sqrt(pow(self.turtles_tracker[i]['x'],2)+pow(self.turtles_tracker[i]['y'],2))
