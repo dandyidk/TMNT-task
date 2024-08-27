@@ -41,7 +41,7 @@ class TurtleTracker:
     def attack(self,data):
         name = data.data
         turtle = self.turtles_tracker[name]
-        if turtle['attack']<0 or time.time() -self.start_time<2:
+        if turtle['attack']<0 or time.time() -self.start_time<1:
             return
         turtle['attack'] -=1
         self.start_time = time.time()
@@ -55,6 +55,7 @@ class TurtleTracker:
                
                 hypo = math.sqrt(pow(x,2)+pow(y,2))
                 if RADIUS>hypo:
+                    print(name,"attacked ",oppturtle)
                     oppturtle['health'] -= 50
                     if oppturtle['health'] <= 0:
                         print(f"{i} has been killed!")
@@ -64,6 +65,7 @@ class TurtleTracker:
 
         if self.gameover():
             print(self.gameover(),"Won")
+            exit 
 
 
         
