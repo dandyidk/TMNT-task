@@ -32,13 +32,16 @@ def main():
 
     rospy.init_node(f'{turtle_name}_wasd_control')
 
-    pub = rospy.Publisher(f'/{turtle_name}/cmd_vel', Twist, queue_size=10)
+    pub_ctrl = rospy.Publisher(f'/{turtle_name}/cmd_vel', Twist, queue_size=10) #publishes the movement of the turtle
+    pub_atck = rospy.Publisher(f'/{turtle_name}/cmd_vel',String,queue_size=10) #publishes when to attack
+
     print("Hello", turtle_name)
 
     global settings
     settings = termios.tcgetattr(sys.stdin) #takes current settings of the terminal
 
     print("Use WASD keys to move the turtle!")
+    print("Type q to attack")
     print("Press Ctrl+C to exit.")
 
     while not rospy.is_shutdown():
@@ -48,7 +51,9 @@ def main():
             x, y, z, th = move_bindings[key]
         else:
             x, y, z, th = 0, 0, 0, 0
-            if key == '\x03':  # Ctrl+C
+            if key =='q':
+                pub_atck.publish(turtle_name)
+            elif key == '\x03':  # Ctrl+C
                 break
 
         twist = Twist()
@@ -59,7 +64,7 @@ def main():
         twist.angular.y = 0
         twist.angular.z = z
 
-        pub.publish(twist)
+        pub_ctrl.publish(twist)
 
 if __name__ == '__main__':
     try:
