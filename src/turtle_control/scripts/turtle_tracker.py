@@ -7,7 +7,7 @@ from std_msgs.msg import String
 import sys,math
 from turtlesim.srv import Kill
 import time
-RADIUS = 1
+RADIUS = 0.8
 
 class TurtleTracker:
     def __init__(self):
