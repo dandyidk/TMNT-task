@@ -1,3 +1,0 @@
-turtle1
-turtle3
-turtle2
